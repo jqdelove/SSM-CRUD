@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--数据库驱动 -->
+    <classPathEntry
+            location="/Users/jinqi/Documents/zijin/mysql-connector-java-8.0.12.jar" />
+
+    <context
+            id="MySQL2Tables"
+            targetRuntime="MyBatis3"
+            defaultModelType="flat">
+
+        <commentGenerator>
+            <property
+                    name="suppressDate"
+                    value="true" />
+            <property
+                    name="suppressAllComments"
+                    value="true" />
+        </commentGenerator>
+        <!--数据库链接地址账号密码 -->
+        <jdbcConnection
+                driverClass="com.mysql.cj.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost:3306/crud?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false"
+                userId="root"
+                password="Jq576163960">
+
+            <!--connectionURL="jdbc:mysql://localhost:3306/ams?useSSL=false"-->
+            <!--userId="root"-->
+            <!--password="12345678">-->
+        </jdbcConnection>
+        <javaTypeResolver>
+            <property
+                    name="forceBigDecimals"
+                    value="false" />
+        </javaTypeResolver>
+        <!--生成Model类存放位置 -->
+        <javaModelGenerator
+                targetPackage="com.zx.model"
+                targetProject="src\main\java">
+            <property
+                    name="enableSubPackages"
+                    value="true" />
+            <property name="useActualColumnNames" value="true" />
+            <property
+                    name="trimStrings"
+                    value="true" />
+        </javaModelGenerator>
+        <!--生成映射文件存放位置 -->
+        <sqlMapGenerator
+                targetPackage="mapper"
+                targetProject="src/main/resources">
+            <property name="useActualColumnNames" value="true" />
+            <property
+                    name="enableSubPackages"
+                    value="true" />
+        </sqlMapGenerator>
+        <!--生成Dao类存放位置 -->
+        <javaClientGenerator
+                type="XMLMAPPER"
+                targetPackage="com.zx.dao"
+                targetProject="src/main/java">
+            <property name="useActualColumnNames" value="true" />
+            <property
+                    name="enableSubPackages"
+                    value="true" />
+        </javaClientGenerator>
+        <!--table指定每个表的生成策略-->
+        <table tableName="tbl_emp" domainObjectName="Employee">
+
+
+        </table>
+        <table tableName="tbl_dept" domainObjectName="Department">
+
+        </table>
+    </context>
+</generatorConfiguration>
